@@ -10,8 +10,6 @@ import org.testng.asserts.SoftAssert;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.testng.Assert.assertEquals;
-
 public class Exercise2Test extends TestBase {
 
 
@@ -34,7 +32,6 @@ public class Exercise2Test extends TestBase {
 
         //4. Assert User name in the left-top side of screen that user is loggined
         String userNameString = userName.getText();
-        //String userName = driver.findElement(By.id("user-name")).getText();
         softAssert.assertEquals(userNameString, "ROMAN IOVLEV");
 
         softAssert.assertAll();
