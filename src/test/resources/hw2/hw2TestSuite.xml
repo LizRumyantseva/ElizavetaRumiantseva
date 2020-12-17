@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Homework_2 Test Suite">
+    <test name="2 Packages">
+        <packages>
+            <package name="hw2.ex1"/>
+        </packages>
+    </test>
+</suite>
