@@ -1,89 +1,47 @@
 package hw3.ex1.RunPagesTest;
 
-import hw3.ex1.Pages.ExpectedTextsUnderImages;
 import hw3.Base.RunPages.BaseTest;
-import hw3.ex1.Pages.FramePage;
-import hw3.Base.Pages.HomePage;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
-
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Exercise1Test extends BaseTest {
-    private static HomePage homePage;
-    private static FramePage framePage;
 
     @Test
     public void exercise1Test() {
 
-        SoftAssert softAssert = new SoftAssert();
-
-        homePage = new HomePage(driver, wait);
-        framePage = new FramePage(driver, wait);
-
         //1. Open test site by URL
-        homePage.open();
-        homePage.waitForEpamLogo();
+        testSteps1.openMainPage();
 
         //2. Assert Browser title
-        softAssert.assertEquals(homePage.getTitle(), "Home Page");
+        testSteps1.assertBrowseTitle();
 
         //3. Perform login
-        homePage.login(username, password);
+        testSteps1.performLogin(username, password);
 
         //4. Assert Username is loggined
-        softAssert.assertEquals(homePage.getUserName(), "ROMAN IOVLEV");
+        testSteps1.assertUsernameIsLoggined();
 
         //5. Assert that there are 4 items on the header section are displayed and they have proper texts
-        softAssert.assertEquals(homePage.getHeaderItemsText(), Arrays.asList("HOME\n"
-                + "CONTACT FORM\n"
-                + "SERVICE\n"
-                + "METALS & COLORS"));
+        testSteps1.assert4ItemsHeaderSectionWithTexts();
 
         // 6. Assert that there are 4 images on the Index Page and they are displayed
-        List<WebElement> images = homePage.getIndexItems();
-        softAssert.assertEquals(homePage.getIndexItems().size(), 4);
-        for (WebElement element : images) {
-            softAssert.assertTrue(element.isDisplayed());
-        }
+        testSteps1.assert4ImagesIndexPage();
 
         //7. Assert that there are 4 texts on the Index Page under icons and they have proper text
-        List<String> imagesTexts = homePage.getIndexItemsText();
-        softAssert.assertEquals(imagesTexts.size(), 4);
-        List<String> expectedTexts = Stream.of(ExpectedTextsUnderImages.values())
-                .map(ExpectedTextsUnderImages::getText)
-                .collect(Collectors.toList());
-
-        softAssert.assertEquals(imagesTexts, expectedTexts);
+        testSteps1.assert4TextsIndexPage();
 
         //8. Assert that there is the iframe with “Frame Button” exist
-        softAssert.assertTrue(homePage.getIframe().isDisplayed());
+        testSteps1.assertIFrameExists();
 
         //9. Switch to the iframe and check that there is “Frame Button” in the iframe
         driver.switchTo().frame(homePage.getIframe());
-        softAssert.assertTrue(framePage.getIFrameBtn().isDisplayed());
+        testSteps1.assertFrameBtnExists();
 
         //10. Switch to original window back
         driver.switchTo().defaultContent();
 
         //11. Assert that there are 5 items in the Left Section are displayed and they have proper text
-        List<WebElement> leftItems = homePage.getLeftItems();
-        for (WebElement element : leftItems) {
-            softAssert.assertTrue(element.isDisplayed());
-        }
-        List<String> leftItemsTexts = leftItems.stream().map(WebElement::getText).collect(Collectors.toList());
-        String expectedLeftItemsText = ("Home\n"
-                + "Contact form\n"
-                + "Service\n"
-                + "Metals & Colors\n"
-                + "Elements packs");
-        softAssert.assertEquals(leftItemsTexts, Arrays.asList(expectedLeftItemsText));
+        testSteps1.LeftSectionWithTexts();
 
-        softAssert.assertAll();
+        testSteps1.assertAll();
     }
 }
