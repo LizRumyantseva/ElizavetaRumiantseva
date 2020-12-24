@@ -3,7 +3,7 @@
     <test name="2 Packages">
         <packages>
             <package name="hw3.ex1.RunPagesTest"/>
-<!--            <package name="hw3.ex2"/>-->
+            <package name="hw3.ex2.RunPagesTest"/>
         </packages>
     </test>
 </suite>

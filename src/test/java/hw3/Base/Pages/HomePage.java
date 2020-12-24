@@ -1,12 +1,10 @@
-package hw3.ex1.Pages;
+package hw3.Base.Pages;
 
 import hw3.Base.DriverUtils.WaitActions;
-import hw3.Base.Pages.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,10 +12,7 @@ import java.util.stream.Collectors;
 public class HomePage extends AbstractPage {
     private WebDriver driver;
 
-
-    public static final String URL_Home = "https://jdi-testing.github.io/jdi-light/index.html";
-
-    //    WaitActions waitActions;
+    private static final String URL_Home = "https://jdi-testing.github.io/jdi-light/index.html";
 
     @FindBy(id = "user-name")
     private WebElement username;
@@ -41,6 +36,10 @@ public class HomePage extends AbstractPage {
     private WebElement iframe;
     @FindBy(xpath = "//ul[@class='sidebar-menu']") //id
     private List<WebElement> elementsLeft;
+    @FindBy(linkText = "Service")
+    private WebElement service;
+    @FindBy(linkText = "Different elements")
+    private WebElement diffElems;
 
 
     public HomePage(WebDriver driver, WaitActions wait) {
@@ -90,5 +89,11 @@ public class HomePage extends AbstractPage {
         return elementsLeft;
     }
 
+    public WebElement getServiceItem() {
+        return service;
+    }
 
+    public WebElement getDiffElemsItem() {
+        return diffElems;
+    }
 }

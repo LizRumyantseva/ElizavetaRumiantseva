@@ -1,52 +1,27 @@
 package hw3.ex1.RunPagesTest;
 
 import hw3.ex1.Pages.ExpectedTextsUnderImages;
-import hw3.Base.DriverUtils.DriverManager;
-import hw3.Base.DriverUtils.WaitActions;
+import hw3.Base.RunPages.BaseTest;
 import hw3.ex1.Pages.FramePage;
-import hw3.ex1.Pages.HomePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import hw3.Base.Pages.HomePage;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-public class Exercise1test {
+public class Exercise1Test extends BaseTest {
     private static HomePage homePage;
     private static FramePage framePage;
-
-    private static WebDriver driver;
-    private WaitActions wait;
-
-    private String username = "Roman";
-    private String password = "Jdi1234";
-
-
-    @BeforeMethod
-    public void setUp() {
-        driver = new DriverManager().setupDriver();
-        wait = new WaitActions(driver);
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
 
     @Test
     public void exercise1Test() {
 
         SoftAssert softAssert = new SoftAssert();
-
 
         homePage = new HomePage(driver, wait);
         framePage = new FramePage(driver, wait);
@@ -80,12 +55,11 @@ public class Exercise1test {
         //7. Assert that there are 4 texts on the Index Page under icons and they have proper text
         List<String> imagesTexts = homePage.getIndexItemsText();
         softAssert.assertEquals(imagesTexts.size(), 4);
-        int index = 0;
-        for (ExpectedTextsUnderImages expectedText : ExpectedTextsUnderImages.values()) {
-            String actualText = imagesTexts.get(index);
-            softAssert.assertEquals(actualText, expectedText.getText());
-            index++;
-        }
+        List<String> expectedTexts = Stream.of(ExpectedTextsUnderImages.values())
+                .map(ExpectedTextsUnderImages::getText)
+                .collect(Collectors.toList());
+
+        softAssert.assertEquals(imagesTexts, expectedTexts);
 
         //8. Assert that there is the iframe with “Frame Button” exist
         softAssert.assertTrue(homePage.getIframe().isDisplayed());
@@ -111,6 +85,5 @@ public class Exercise1test {
         softAssert.assertEquals(leftItemsTexts, Arrays.asList(expectedLeftItemsText));
 
         softAssert.assertAll();
-
     }
 }

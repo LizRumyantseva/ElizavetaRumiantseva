@@ -10,13 +10,10 @@ import org.openqa.selenium.support.PageFactory;
 public class FramePage extends AbstractPage {
 
     private WebDriver driver;
-    public static final String URL_Home = "https://jdi-testing.github.io/jdi-light/index.html";
+    private static final String URL_Home = "https://jdi-testing.github.io/jdi-light/index.html";
 
-//    @FindBy(css = "iframe#frame")
-//    private WebElement iframe;
     @FindBy(id = "button-frame")
     private WebElement iFrameBtn;
-
 
 
     public FramePage(WebDriver driver, WaitActions wait) {
