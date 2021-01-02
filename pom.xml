@@ -55,10 +55,20 @@
         <profile>
             <id>hw2</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.file>${project.basedir}/src/test/resources/hw2/HW2TestSuite.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw3</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>${project.basedir}/src/test/resources/hw3/HW3TestSuite.xml</suite.file>
             </properties>
         </profile>
 
