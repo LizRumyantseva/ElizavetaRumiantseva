@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Homework_4 Test Suite">
+
+    <listeners>
+        <listener class-name="hw4.Base.DriverUtils.AllureListener"/>
+    </listeners>
+
+    <test name="Testing of all test classes">
+        <classes>
+            <class name="hw4.ex1.Exercise1Test"/>
+            <class name="hw4.ex1.Exercise1TestWithFailure"/>
+            <class name="hw4.ex2.Exercise2Test"/>
+        </classes>
+    </test>
+</suite>
