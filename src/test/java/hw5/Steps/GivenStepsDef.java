@@ -5,9 +5,10 @@ import io.cucumber.java.en.Given;
 
 public class GivenStepsDef extends AbstractBaseStepDef {
 
-    @Given("I am on Home Page")
+    @Given("I open JDI GitHub site")
     public void iAmOnHomePage() {
         homePage.open();
+        homePage.waitForEpamLogo();
     }
 
 

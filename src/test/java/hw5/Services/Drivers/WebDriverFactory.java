@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class WebDriverFactory {
     private static final String CHROME = "CHROME";
     private static final String FIREFOX = "FIREFOX";

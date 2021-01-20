@@ -25,22 +25,24 @@ public class HomePage extends AbstractPage {
     private WebElement loginField;
     @FindBy(id = "login-button")
     private WebElement loginButton;
-    @FindBy(xpath = "//*[@id='epam-logo']") //id
+    @FindBy(id="epam-logo")
     private WebElement epamLogo;
     @FindBy(css = ".uui-navigation.nav.navbar-nav.m-l8")
     List<WebElement> elementsHeader;
-    @FindBy(css = ".benefit-icon span") // .icons-benefit
+    @FindBy(css = ".benefit-icon span")
     List<WebElement> elementsIndex;
     @FindBy(css = ".benefit-txt")
     List<WebElement> elementsIndexTexts;
     @FindBy(id = "frame")
     private WebElement iframe;
-    @FindBy(xpath = "//ul[@class='sidebar-menu']") //id
+    @FindBy(xpath = "//ul[@class='sidebar-menu']")
     private List<WebElement> elementsLeft;
     @FindBy(linkText = "Service")
     private WebElement service;
     @FindBy(linkText = "Different elements")
     private WebElement diffElems;
+    @FindBy(xpath = "//a[text()='User Table ']")
+    private WebElement userTable;
 
 
     public HomePage(WebDriver driver, WaitActions wait) {
@@ -54,10 +56,6 @@ public class HomePage extends AbstractPage {
         loginField.sendKeys(usrname);
         password.sendKeys(pwd);
         loginButton.click();
-    }
-
-    public String getTitle() {
-        return driver.getTitle();
     }
 
     public String getUserName() {
@@ -103,4 +101,10 @@ public class HomePage extends AbstractPage {
     public void switchToHomePage() {
         driver.switchTo().defaultContent();
     }
+
+    public WebElement getUserTableItem() {
+        return userTable;
+    }
+
+
 }

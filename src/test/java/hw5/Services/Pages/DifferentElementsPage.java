@@ -38,14 +38,7 @@ public class DifferentElementsPage extends AbstractPage {
         PageFactory.initElements(driver, this);
     }
 
-    public String getTitle() {
-        return driver.getTitle();
-    }
-
-    public WebElement getWaterCheckBox() {
-        return checkboxes.get(0);
-
-    }
+    public WebElement getWaterCheckBox() { return checkboxes.get(0); }
 
     public WebElement getWindCheckBox() {
         return checkboxes.get(2);
@@ -70,12 +63,6 @@ public class DifferentElementsPage extends AbstractPage {
         return dropdownYellow;
     }
 
-    public List<String> getListsLogs() {
-        return listsLogs.stream()
-                .map(WebElement::getText)
-                .collect(Collectors.toList());
-    }
-
     public String getWaterLog(){
         return getListsLogs().get(3);
     }
@@ -90,5 +77,11 @@ public class DifferentElementsPage extends AbstractPage {
 
     public String getDropdownYellowLog(){
         return getListsLogs().get(0);
+    }
+
+    private List<String> getListsLogs() {
+        return listsLogs.stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
     }
 }
