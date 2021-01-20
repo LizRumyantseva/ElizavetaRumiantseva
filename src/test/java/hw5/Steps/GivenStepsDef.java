@@ -1,6 +1,5 @@
 package hw5.Steps;
 
-import hw5.Steps.AbstractBaseStepDef;
 import io.cucumber.java.en.Given;
 
 public class GivenStepsDef extends AbstractBaseStepDef {

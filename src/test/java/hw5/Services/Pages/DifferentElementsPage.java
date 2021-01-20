@@ -25,7 +25,7 @@ public class DifferentElementsPage extends AbstractPage {
     @FindBy(xpath = "//select[@class = 'uui-form-element']")
     private WebElement dropdown;
 
-    @FindBy(xpath = "//*[@class = 'uui-form-element']/option")
+    @FindBy(css = ".uui-form-element option")
     private List<WebElement> dropdownOptions;
 
     @FindBy(xpath = "//ul[@class = 'panel-body-list logs']/li")
