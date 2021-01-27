@@ -8,8 +8,8 @@ import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.JDropdown;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.XPath;
 import com.epam.jdi.light.ui.html.elements.common.Button;
-import hw6.entities.Data;
 import hw6.entities.MetalsAndColorsData;
+//import hw6.entities.MetalsAndColorsData;
 
 public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
     @Css("#elements-block p")
@@ -43,28 +43,28 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
     @Css("#submit-button")
     private Button submitButton;
 
-    private void selectElements(Data data) {
+    private void selectElements(MetalsAndColorsData data) {
         for (String element : data.getElements()) {
             checklistElements.select(element);
         }
     }
 
-    private void selectSummaryOddRadio(Data data) {
+    private void selectSummaryOddRadio(MetalsAndColorsData data) {
         oddRadio.select(String.valueOf(data.getSummaryOdd()));
 
     }
 
-    private void selectSummaryEvenRadio(Data data) {
+    private void selectSummaryEvenRadio(MetalsAndColorsData data) {
         evenRadio.select(String.valueOf(data.getSummaryEven()));
 
     }
 
-    private void selectDropdownColors(Data data) {
+    private void selectDropdownColors(MetalsAndColorsData data) {
         dropdownColors.select(data.getColor());
 
     }
 
-    private void selectDropdownMetals(Data data) {
+    private void selectDropdownMetals(MetalsAndColorsData data) {
         dropdownMetals.select(data.getMetals());
 
     }
@@ -74,7 +74,7 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
 
     }
 
-    private void selectVegetables(Data data) {
+    private void selectVegetables(MetalsAndColorsData data) {
         dropdownVegetables.click();
         vegetableOptions.select("Vegetables"); // unselect
 
@@ -85,7 +85,7 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
         }
     }
 
-    public void submit(Data data) {
+    public void submit(MetalsAndColorsData data) {
         selectDropdownColors(data);
         selectDropdownMetals(data);
         selectElements(data);

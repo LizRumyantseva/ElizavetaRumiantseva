@@ -5,7 +5,7 @@ import com.epam.jdi.light.elements.pageobjects.annotations.JSite;
 import com.epam.jdi.light.elements.pageobjects.annotations.Title;
 import com.epam.jdi.light.elements.pageobjects.annotations.Url;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
-import hw6.entities.Data;
+import hw6.entities.MetalsAndColorsData;
 import hw6.entities.JdiUser;
 import hw6.pages.JdiHomePage;
 import hw6.pages.MetalsAndColorsPage;
@@ -33,7 +33,7 @@ public class JdiSite {
         jdiHomePage.login(jdiUser);
     }
 
-    public static void submitMetalsAndColorsFormFilledWithData(Data data) {
+    public static void submitMetalsAndColorsFormFilledWithData(MetalsAndColorsData data) {
         metalsAndColorsPage.metalsAndColorsForm.submit(data);
     }
 

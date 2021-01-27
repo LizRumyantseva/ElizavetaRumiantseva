@@ -2,7 +2,7 @@ package hw6;
 
 import com.epam.jdi.light.driver.WebDriverUtils;
 import com.epam.jdi.light.elements.init.PageFactory;
-import hw6.entities.Data;
+import hw6.entities.MetalsAndColorsData;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
@@ -30,7 +30,7 @@ public class JdiTest {
 
     @Test(dataProviderClass = TestDataFromJson.class,
             dataProvider = "TestData")
-     public void metalsAndColorsFormTest(Data expectedData) {
+     public void metalsAndColorsFormTest(MetalsAndColorsData expectedData) {
         headerMenu.select("METALS & COLORS");
         assertTrue(metalsAndColorsPage.isOpened());
         submitMetalsAndColorsFormFilledWithData(expectedData);
