@@ -51,27 +51,22 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
 
     private void selectSummaryOddRadio(MetalsAndColorsData data) {
         oddRadio.select(String.valueOf(data.getSummaryOdd()));
-
     }
 
     private void selectSummaryEvenRadio(MetalsAndColorsData data) {
         evenRadio.select(String.valueOf(data.getSummaryEven()));
-
     }
 
     private void selectDropdownColors(MetalsAndColorsData data) {
         dropdownColors.select(data.getColor());
-
     }
 
     private void selectDropdownMetals(MetalsAndColorsData data) {
         dropdownMetals.select(data.getMetals());
-
     }
 
     private void clickOnSubmitButton() {
         submitButton.click();
-
     }
 
     private void selectVegetables(MetalsAndColorsData data) {

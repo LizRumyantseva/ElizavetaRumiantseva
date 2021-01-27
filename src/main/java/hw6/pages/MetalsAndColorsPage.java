@@ -11,5 +11,4 @@ public class MetalsAndColorsPage extends WebPage {
 
     @Css(".info-panel-body info-panel-body-result")
     public ResultForm resultForm;
-
 }
