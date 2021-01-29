@@ -3,7 +3,6 @@ package hw6;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import hw6.entities.MetalsAndColorsData;
-//import hw6.entities.MetalsAndColorsData;
 import org.testng.annotations.DataProvider;
 
 import java.io.FileNotFoundException;
@@ -18,8 +17,8 @@ public class TestDataFromJson {
 
     @DataProvider(name = "TestData")
     public Iterator<Object[]> getTestDataFromJson() throws FileNotFoundException {
-        Type MetalsAndColorsMapType = new TypeToken<Map<String, MetalsAndColorsData>>() {}.getType();
-        Map<String, MetalsAndColorsData> data = new Gson().fromJson(new FileReader(JSON_PATH), MetalsAndColorsMapType);
+        Type metalsAndColorsMapType = new TypeToken<Map<String, MetalsAndColorsData>>() {}.getType();
+        Map<String, MetalsAndColorsData> data = new Gson().fromJson(new FileReader(JSON_PATH), metalsAndColorsMapType);
 
         return data.values().stream().map(data1 -> new Object[]{data1}).collect(Collectors.toList()).iterator();
     }

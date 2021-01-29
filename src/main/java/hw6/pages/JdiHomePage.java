@@ -16,7 +16,6 @@ public class JdiHomePage extends WebPage {
     @Css("#user-icon")
     private Button userIcon;
 
-
     public String getUserName() {
         return userName.getText();
     }

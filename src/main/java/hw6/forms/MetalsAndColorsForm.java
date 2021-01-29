@@ -9,7 +9,6 @@ import com.epam.jdi.light.elements.pageobjects.annotations.locators.JDropdown;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.XPath;
 import com.epam.jdi.light.ui.html.elements.common.Button;
 import hw6.entities.MetalsAndColorsData;
-//import hw6.entities.MetalsAndColorsData;
 
 public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
     @Css("#elements-block p")
